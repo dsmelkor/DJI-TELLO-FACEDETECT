@@ -1,9 +1,12 @@
-# TelloSDKPy
-DJI Tello drone python interface using the official [Tello SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf). 
-Yes, this library has been tested with the drone. 
-Please see [example.py](https://github.com/damiafuentes/TelloSDKPy/blob/master/example.py) for a working example controlling the drone as a remote controller with the keyboard and the video stream in a window.  
+# DJI Tello - Face detecction
 
-Tested with Python 3.6, but it also may be compatabile with other versions.
+DJI Tello drone python interface using the official [Tello SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf). 
+La librería ha sido chequeada con estos Drones y funciona
+
+El autor original del programa es * **Damià Fuentes Escoté**
+[example.py](https://github.com/damiafuentes/TelloSDKPy/blob/master/example.py) for a working example controlling the drone as a remote controller with the keyboard and the video stream in a window.
+
+Testeado con Python 3.6, .
 
 ## Install
 ```
@@ -14,6 +17,7 @@ or
 $ git clone https://github.com/damiafuentes/TelloSDKPy.git
 $ cd DJITelloPy
 $ pip install requirements.txt
+$ verificar que se encuentra en la estructura la librería de datos de haarcascades
 ```
 
 ## Usage
@@ -46,7 +50,6 @@ tello.end()
 ```
 
 ### Example using pygame and the video stream
-Please see [example.py](https://github.com/damiafuentes/TelloSDKPy/blob/master/example.py). 
 
 The controls are:
 - T: Takeoff
@@ -58,9 +61,9 @@ The controls are:
 ### Note
 If you are using the ```streamon``` command and the response is ```Unknown command``` means you have to update the Tello firmware. That can be done through the Tello app.
 
-## Author
+## Autor de Función deteccion de rostros
+* **DSMELKOR**
 
-* **Damià Fuentes Escoté** 
 
 
 ## License
