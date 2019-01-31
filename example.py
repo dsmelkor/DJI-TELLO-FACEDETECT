@@ -9,7 +9,7 @@ import time
 S = 60
 # Frames per second of the pygame window display
 FPS = 25
-face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_alt.xml')
 
 class FrontEnd(object):
     """ Maintains the Tello display and moves it through the keyboard keys.
@@ -27,8 +27,12 @@ class FrontEnd(object):
         pygame.init()
 
         # Creat pygame window
-        pygame.display.set_caption("Tello video stream")
+        pygame.display.set_caption("Video FPV Tello")
         self.screen = pygame.display.set_mode([960, 720])
+
+        # Creat pygame fuente
+        myFont=pygame.font.Font(None,30)
+        self.mitexto = myFont.render("prueba Pantalla",0,(200,60,80))
 
         # Init Tello object that interacts with the Tello drone
         self.tello = Tello()
@@ -48,20 +52,20 @@ class FrontEnd(object):
     def run(self):
 
         if not self.tello.connect():
-            print("Tello not connected")
+            print("Drone no conectado")
             return
 
         if not self.tello.set_speed(self.speed):
-            print("Not set speed to lowest possible")
+            print("No es posible menos velocidad")
             return
 
         # In case streaming is on. This happens when we quit this program without the escape key.
         if not self.tello.streamoff():
-            print("Could not stop video stream")
+            print("no se pudo parar el etreaming")
             return
 
         if not self.tello.streamon():
-            print("Could not start video stream")
+            print("no se pudo iniciar el etreaming")
             return
 
         frame_read = self.tello.get_frame_read()
@@ -92,7 +96,7 @@ class FrontEnd(object):
             frame = np.flipud(frame)
             frame = pygame.surfarray.make_surface(frame)
             self.screen.blit(frame, (0, 0))
-            pygame.display.update()
+            self.screen.blit(self.mitexto,(100,100))
 
             time.sleep(1 / FPS)
             # Face detecction
@@ -106,7 +110,8 @@ class FrontEnd(object):
                  end_coord_y = y + h
                  cv2.rectangle (frame_read.frame,(x, y),(end_coord_x, end_coord_y), color, stroke)
 
-
+            pygame.display.update()
+        print('Response: ' + str(self.tello.send_read_command('battery?')))
         # Call it always before finishing. I deallocate resources.
         self.tello.end()
 
