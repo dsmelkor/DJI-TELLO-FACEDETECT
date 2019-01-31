@@ -3,9 +3,6 @@
 DJI Tello drone python interface using the official [Tello SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf). 
 La librería ha sido chequeada con estos Drones y funciona
 
-El autor original del programa es * **Damià Fuentes Escoté**
-[example.py](https://github.com/damiafuentes/TelloSDKPy/blob/master/example.py) for a working example controlling the drone as a remote controller with the keyboard and the video stream in a window.
-
 Testeado con Python 3.6, .
 
 ## Install
@@ -65,6 +62,9 @@ If you are using the ```streamon``` command and the response is ```Unknown comma
 * **DSMELKOR**
 
 
+
+El autor original del programa es * **Damià Fuentes Escoté**
+[example.py](https://github.com/damiafuentes/TelloSDKPy/blob/master/example.py) for a working example controlling the drone as a remote controller with the keyboard and the video stream in a window.
 
 ## License
 
