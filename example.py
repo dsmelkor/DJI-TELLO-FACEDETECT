@@ -61,11 +61,11 @@ class FrontEnd(object):
 
         # In case streaming is on. This happens when we quit this program without the escape key.
         if not self.tello.streamoff():
-            print("no se pudo parar el etreaming")
+            print("no se pudo parar el streaming")
             return
 
         if not self.tello.streamon():
-            print("no se pudo iniciar el etreaming")
+            print("no se pudo iniciar el streaming")
             return
 
         frame_read = self.tello.get_frame_read()
